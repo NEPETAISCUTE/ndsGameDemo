@@ -1,0 +1,11 @@
+/opt/devkitpro/devkitARM/bin/arm-none-eabi-g++
+-target armv5-linux-gnueabi
+-std=c++20
+-D__ICCARM__
+-D__NDS__
+-DARM9
+-U__GNUC__
+-U__clang__
+-isystem/opt/devkitpro/devkitARM/arm-none-eabi/include
+-isystem/opt/devkitpro/libnds/include
+-isystem/opt/devkitpro/calico/include/
