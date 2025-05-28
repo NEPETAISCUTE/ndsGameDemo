@@ -9,11 +9,13 @@ struct fw32 {
 	s32 val;
 	fw32();
 	fw32(s32 val);
-	constexpr fw32(float val);
 	constexpr fw32(double val);
 	static fw32 fromF32(s32 val);
 
+	explicit operator const s32() const;
 	explicit operator s32() const;
+	explicit operator const s16() const;
+	explicit operator s16() const;
 	float toFloat() const;
 
 	void printFw32();
@@ -33,6 +35,16 @@ fw32 operator+(const fw32& a, const fw32& b) { return fw32(a.val + b.val); }
 fw32 operator-(const fw32& a, const fw32& b) { return fw32(a.val - b.val); }
 fw32 operator*(const fw32& a, const fw32& b) { return fw32(mulf32(a.val, b.val)); }
 fw32 operator/(const fw32& a, const fw32& b) { return fw32(divf32(a.val, b.val)); }
+
+fw32 operator&(const fw32& a, const fw32& b) { return a.val & b.val; }
+fw32 operator&(const fw32& a, s32 b) { return a.val & b; }
+fw32 operator|(const fw32& a, const fw32& b) { return a.val | b.val; }
+fw32 operator|(const fw32& a, s32 b) { return a.val | b; }
+fw32 operator^(const fw32& a, const fw32& b) { return a.val ^ b.val; }
+fw32 operator^(const fw32& a, s32 b) { return a.val ^ b; }
+
+fw32 operator<<(const fw32& a, s32 b) { return a.val << b; }
+fw32 operator>>(const fw32& a, s32 b) { return a.val >> b; }
 
 void operator+=(fw32& a, const fw32& b) { a = a + b; }
 void operator-=(fw32& a, const fw32& b) { a = a - b; }

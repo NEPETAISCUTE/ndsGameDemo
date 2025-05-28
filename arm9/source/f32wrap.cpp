@@ -6,7 +6,7 @@ fw32::fw32() : val(0) {}
 
 fw32::fw32(s32 _val) : val(inttof32(_val)) {}
 
-constexpr fw32::fw32(float _val) : val(floattof32(_val)) {}
+// constexpr fw32::fw32(float _val) : val(floattof32(_val)) {}
 constexpr fw32::fw32(double _val) : val(floattof32(_val)) {}
 
 fw32 fw32::fromF32(s32 val) {
@@ -15,7 +15,10 @@ fw32 fw32::fromF32(s32 val) {
 	return fixed;
 }
 
+fw32::operator const s32() const { return f32toint(this->val); }
 fw32::operator s32() const { return f32toint(this->val); }
+fw32::operator const s16() const { return f32toint(this->val); }
+fw32::operator s16() const { return f32toint(this->val); }
 
 float fw32::toFloat() const { return f32tofloat(val); }
 

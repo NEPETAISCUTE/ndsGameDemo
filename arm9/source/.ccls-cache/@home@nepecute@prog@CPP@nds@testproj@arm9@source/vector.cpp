@@ -31,11 +31,7 @@ namespace std {
 
 inline fw32 lerpf32(fw32 a, fw32 b, fw32 t) { return a + (b - a) * t; }
 
-VecF32::VecF32() {
-	this->x = 0;
-	this->y = 0;
-	this->z = 0;
-}
+VecF32::VecF32() : x((s32)0L), y((s32)0L), z((s32)0L) {}
 
 VecF32::VecF32(fw32 x, fw32 y, fw32 z) {
 	this->x = x;
